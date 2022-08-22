@@ -7,6 +7,9 @@
     "dev": "next"
   },
   "dependencies": {
+    "@onehop/client": "^1.3.7",
+    "@onehop/js": "^1.2.9",
+    "@onehop/react": "^1.3.7",
     "next": "^12.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
