@@ -1,3 +1,5 @@
+import "../styles/globals.css";
+
 import { useEffect } from "react";
 import { project } from "../config";
 import { hop } from "@onehop/client";
