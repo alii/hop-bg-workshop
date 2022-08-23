@@ -1,4 +1,14 @@
 body {
 	padding: 10%;
-	font-family: "Courier New", Courier, monospace;
+	font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+		Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+input,
+button {
+	background: white;
+	border-radius: 4px;
+	padding: 4px 8px;
+	border: 1px solid gray;
+	margin-right: 2px;
 }
