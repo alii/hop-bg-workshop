@@ -13,8 +13,6 @@ export default function Home() {
 
 	const { state } = useReadChannelState("messages");
 
-	console.log(state);
-
 	useEffect(() => {
 		if (messages.length === 0 && state && state.messages.length > 0) {
 			setMessages(state.messages);
@@ -55,7 +53,13 @@ export default function Home() {
 				{messages.map(message => {
 					return (
 						<li key={message.id}>
-							<b>{message.author}</b>: {message.content}
+							<b
+								style={{
+									color: message.isAdmin ? "red" : "black",
+								}}>
+								{message.author}
+							</b>
+							: {message.content}
 						</li>
 					);
 				})}

@@ -25,8 +25,9 @@ export default async (req, res) => {
 
 	const data = {
 		content,
-		author,
+		author: author === "my_secret_value" ? "Admin" : author,
 		id: nanoid(),
+		isAdmin: author === "my_secret_value",
 	};
 
 	await hop.channels.publishMessage("messages", "MESSAGE_CREATE", data);
