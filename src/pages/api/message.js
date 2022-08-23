@@ -1,5 +1,11 @@
 import { Hop } from "@onehop/js";
 import { nanoid } from "nanoid";
+import { z } from "zod";
+
+const schema = z.object({
+	content: z.string().min(0).max(240),
+	author: z.string().min(3).max(32),
+});
 
 const hop = new Hop(process.env.HOP_PROJECT_TOKEN);
 
@@ -8,7 +14,14 @@ export default async (req, res) => {
 		return res.status(405).json({ success: false, message: "Must POST" });
 	}
 
-	const { content, author } = req.body;
+	const result = schema.safeParse(req.body);
+
+	if (!result.success) {
+		res.status(400).json({ success: false, message: "Invalid body" });
+		return;
+	}
+
+	const { content, author } = result.data;
 
 	const data = {
 		content,
