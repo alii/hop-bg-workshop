@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useChannelMessage } from "@onehop/react";
+import { useState, useEffect } from "react";
+import { useChannelMessage, useReadChannelState } from "@onehop/react";
 
 export default function Home() {
 	const [messages, setMessages] = useState([]);
@@ -10,6 +10,16 @@ export default function Home() {
 	useChannelMessage("messages", "MESSAGE_CREATE", data => {
 		setMessages(old => [data, ...old]);
 	});
+
+	const { state } = useReadChannelState("messages");
+
+	console.log(state);
+
+	useEffect(() => {
+		if (messages.length === 0 && state && state.messages.length > 0) {
+			setMessages(state.messages);
+		}
+	}, [state, messages]);
 
 	const submit = async e => {
 		e.preventDefault();

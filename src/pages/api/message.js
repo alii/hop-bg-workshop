@@ -18,6 +18,10 @@ export default async (req, res) => {
 
 	await hop.channels.publishMessage("messages", "MESSAGE_CREATE", data);
 
+	await hop.channels.setState("messages", state => ({
+		messages: [data, ...state.messages].slice(0, 20),
+	}));
+
 	res.json({
 		success: true,
 	});
