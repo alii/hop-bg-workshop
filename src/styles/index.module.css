@@ -1,0 +1,11 @@
+.input {
+    font-size: large;
+    padding: .5rem;
+}
+
+.message {
+    list-style: none;
+    border-bottom: 2px solid var(--color-tertiary);
+    padding: 1rem 0 .5rem 0;
+}
+
