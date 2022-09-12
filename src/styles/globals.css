@@ -1,3 +1,10 @@
+
+:root {
+	--color-primary: #7F00FF;
+	--color-secondary: #EE82EE;
+	--color-tertiary: #ccc;
+}
+
 body {
 	padding: 10%;
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
@@ -6,9 +13,16 @@ body {
 
 input,
 button {
-	background: white;
 	border-radius: 4px;
 	padding: 4px 8px;
-	border: 1px solid gray;
+	border: 1px solid var(--color-tertiary);
 	margin-right: 2px;
+	font-size: large;
+}
+
+button {
+	background: var(--color-primary);
+	cursor: pointer;
+	margin: .25rem;
+	padding: .5rem 1rem;
 }

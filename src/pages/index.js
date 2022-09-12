@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "../styles/index.module.css"
 import { useChannelMessage, useReadChannelState } from "@onehop/react";
 
 export default function Home() {
@@ -34,6 +35,7 @@ export default function Home() {
 			<form onSubmit={submit}>
 				<input
 					type="text"
+					className={styles.input}
 					placeholder="Author"
 					value={author}
 					onChange={e => setAuthor(e.target.value)}
@@ -41,6 +43,7 @@ export default function Home() {
 
 				<input
 					type="text"
+					className={styles.input}
 					placeholder="Message content"
 					value={content}
 					onChange={e => setContent(e.target.value)}
@@ -49,10 +52,10 @@ export default function Home() {
 				<button type="submit">Submit message</button>
 			</form>
 
-			<ul>
+			<ul className={styles.messageContainer}>
 				{messages.map(message => {
 					return (
-						<li key={message.id}>
+						<li key={message.id} className={styles.message}>
 							<b
 								style={{
 									color: message.isAdmin ? "red" : "black",
