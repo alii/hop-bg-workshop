@@ -1,6 +1,7 @@
 
 :root {
 	--color-primary: #7F00FF;
+	--color-on-primary: white;
 	--color-secondary: #EE82EE;
 	--color-tertiary: #ccc;
 }
@@ -25,4 +26,5 @@ button {
 	cursor: pointer;
 	margin: .25rem;
 	padding: .5rem 1rem;
+	color: var(--color-on-primary);
 }
